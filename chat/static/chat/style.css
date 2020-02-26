@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+
+textarea {
+    background-color: black;
+    color: white;
+}
+
+input[id="chat-message-input"]{
+    background-color: black;
+    color: white;
+}
+
+input[id="chat-message-submit"]{
+    background-color: black;
+    color: white;
+}
