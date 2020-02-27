@@ -15,9 +15,10 @@
 <script>
     var roomName = "{{ room_name|escapejs }}";
     var textarea = document.getElementById('chat-log');
-
+    // var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+    
     var chatSocket = new WebSocket(
-        'wss://' + window.location.host +
+        'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
 
     document.querySelector('#chat-log').value += ('입장완료. \n');
