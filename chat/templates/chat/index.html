@@ -4,10 +4,13 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'chat/style.css' %}">
 </head>
 
 <body>
-    채팅방 이름 입력:<br/>
+    <h1>채팅방 이름 입력:</h1>
+    <br>
     <input id="room-name-input" type="text" size="100"/><br/>
     <input id="room-name-submit" type="button" value="Enter"/>
 
@@ -25,4 +28,4 @@
         };
     </script>
 </body>
-</htm
+</html>
