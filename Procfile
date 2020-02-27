@@ -1,1 +1,1 @@
-web: gunicorn mybbs.wsgi
+web: gunicorn mybbs.wsgi --log-file -
