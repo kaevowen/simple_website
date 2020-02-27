@@ -1,1 +1,1 @@
-web: gunicorn simple-website:app --logfile -
+web: gunicorn mybbs.wsgi
