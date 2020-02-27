@@ -18,7 +18,7 @@
 
     var chatSocket = new WebSocket(
         'wss://' + window.location.host +
-        '/wss/chat/' + roomName + '/');
+        '/ws/chat/' + roomName + '/');
 
     document.querySelector('#chat-log').value += ('입장완료. \n');
     chatSocket.onmessage = function(e) {
