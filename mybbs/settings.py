@@ -137,4 +137,4 @@ STATICFILES_DIRS = (
     # 'chat/static',
 )
 
-django_heroku.settings(locals())
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
