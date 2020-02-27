@@ -139,7 +139,7 @@ STATICFILES_DIRS = (
     # 'chat/static',
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.CompressedManifestStaticFilesStorage'
 
 import dj_database_url
 
