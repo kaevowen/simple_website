@@ -1,1 +1,1 @@
-web: gunicorn mybbs.wsgi --log-file -
+daphne mybbs.asgi:application --port $PORT --bind 0.0.0.0 -v2
