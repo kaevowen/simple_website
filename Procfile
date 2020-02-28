@@ -1,1 +1,1 @@
-web: gunicorn mybbs.asgi
+web: gunicorn mybbs.wsgi
