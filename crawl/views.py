@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from bs4 import BeautifulSoup as bs
 import requests
-import xml.etree.ElementTree as elemTree
+
 
 def wuhan_crawl(req):
     client_id = '0ZH4Jxq2Sil2c_0uNWm6'
@@ -14,8 +14,6 @@ def wuhan_crawl(req):
     for r in req.find_all('title'):
         lst.append(r.text)
 
-    return render(req, 'c/crawl_result.html', lst)
+    return render(req, 'crawl/crawl_result.html', lst)
 
 # Create your views here.
-
-wuhan_crawl()
