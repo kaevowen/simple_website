@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chat',
     'rest_framework',
+    'crawl',
 ]
 
 ASGI_APPLICATION = 'mybbs.routing.application'

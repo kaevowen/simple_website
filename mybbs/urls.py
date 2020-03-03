@@ -19,7 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('chat.urls'), name='chat'),
-    path('crawl/', include('crawl.urls'), name='crawl')
+    path('', include('index.urls', name='index'),
+    path('chat/', include('chat.urls'), name='chat'),
+    path('crawl/', include('crawl.urls'), name='crawl'),
 ]
 urlpatterns += staticfiles_urlpatterns()
