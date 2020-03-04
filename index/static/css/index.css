@@ -1,0 +1,11 @@
+body {
+    background: url('/static/img/index.jpg') 50% 0 no-repeat fixed;
+    background-color: black;
+    background-position: left 0% bottom 0%;
+    color: white;
+}
+
+ul {
+    list-style:none;
+    align: center;
+}
