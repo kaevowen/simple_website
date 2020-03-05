@@ -10,11 +10,15 @@ ul {
     align: center;
 }
 
-a:link {
+a, a:link {
     color: white;
 }
 
 a:visited{
     color: pink;
 
+}
+
+textarea{
+    color: black;
 }

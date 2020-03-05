@@ -11,7 +11,6 @@ def crawl(req):
 
 def refresh(req):
     ctx = parser.crawl_naver_news()
-    a = render_to_string('crawl/refresh_format.html', ctx)
-    return HttpResponse(a)
+    return HttpResponse(render_to_string('crawl/refresh_format.html', ctx))
 
 # Create your views here.
