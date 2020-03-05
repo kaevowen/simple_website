@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls'), name='index'),
     path('chat/', include('chat.urls'), name='chat'),
+    path('result/', include('crawl.urls'), name='crawl'),
 ]
 urlpatterns += staticfiles_urlpatterns()

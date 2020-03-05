@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'chat',
     'rest_framework',
     'index',
+    'crawl',
 ]
 
 ASGI_APPLICATION = 'mybbs.routing.application'

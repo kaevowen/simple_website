@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRAWL RESULT</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    {% csrf_token %}
+</head>
+
+<body>
+    <div id="news-titles">
+        {% for c in ctx %}
+            <a href="{{c.link}}">{{c.title|safe}}</a>
+            <br>
+        {% endfor %}
+    </div>
+
+    <div id="refresh_area">
+        <br>
+        <button id="refresh">auto refresh</button>
+        <button id="stop" disabled>stop</button>
+    </div>
+    <br>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+$('#refresh').click(function(){
+    $('#refresh').attr('disabled', true);
+    $('#stop').attr('disabled', false);
+})
+
+$('#stop').click(function(){
+    $('#refresh').attr('disabled', false);
+    $('#stop').attr('disabled', true);
+})
+*/
+// using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+$("#refresh").click(function(){
+    var csrf_token = $('[name=csrfmiddlewaretoken]').val();
+    $.ajax({
+        type:'POST',
+        url:'result/refresh',
+        data:{
+            'text': $('#news-titles').val(),
+        },
+    success:function(data){
+        $('#news-titles').html(data);
+    }
+    });
+});
+</script>
+</html>
