@@ -12,4 +12,4 @@ url = 'https://openapi.naver.com/v1/search/news.json?display=20&query=' + 'ìš°í•
 
 def crawl_naver_news():
     req = html.unescape(requests.get(url, headers=headers).json())
-    return {'ctx': req['items']}
+    return req['items']

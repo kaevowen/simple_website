@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU</title>
+    {% load static %}
+    {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <center>
+        <h1>sale&discount list</h1>
+        <form method="GET">
+            상품검색 : <input type="text" id="textSearch">
+        </form>
+        <br>
+        <div id="prodlist">
+            <ul>
+                {% include 'convenience/search_partial.html' %}
+            </ul>
+        </div>
+    </center>
+</body>
+</html>
+
+<script>
+    const textSearch = $("#textSearch")
+    const prodlist = $("#prodlist")
+    const endpoint = '/CU/'
+    const delay_by_in_ms = 700
+    let scheduled_function = false
+
+    let ajax_call = function (endpoint, req_params) {
+        $.getJSON(endpoint, req_params)
+            .done(response => {
+                prodlist.fadeTo('slow', 0).promise().then(() => {
+                prodlist.html(response['html_from_view'])
+                prodlist.fadeTo('slow', 1)
+            })
+        })
+    }
+
+    textSearch.on('keyup', function() {
+        const req_params = {
+            q: $(this).val()
+        }
+
+    if (scheduled_function){
+        clearTimeout(scheduled_function)
+    }
+
+    scheduled_function = setTimeout(ajax_call, delay_by_in_ms, endpoint, req_params)
+    })
+
+</script>

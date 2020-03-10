@@ -1,0 +1,10 @@
+{% if ctx %}
+<ul>
+    {% for c in ctx %}
+    <li>{{c.prodName}} // {{c.prodPrice}} // {{c.prodBonus}}</li>
+    {% endfor %}
+
+{% else %}
+    <p>상품이 없습니다.</p>
+{% endif %}
+</ul>

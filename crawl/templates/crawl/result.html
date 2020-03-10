@@ -73,7 +73,7 @@ $("#refresh").click(function(){
     $.ajax({
         type:'POST',
         url:'refresh',
-        //headers:{"X-CSRFToken": $crf_token},
+        headers:{"X-CSRFToken": $crf_token},
         data:{
             'text': $('#news-titles').val(),
         },
